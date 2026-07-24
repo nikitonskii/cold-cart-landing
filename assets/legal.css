@@ -1,5 +1,5 @@
 /* Cold Cart — shared styling for legal / support pages */
-@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@1,300;1,400&family=Schibsted+Grotesk:wght@400;500;600;700;800&display=swap');
+@import url('/assets/fonts.css');
 
 :root{
   --brand:#6b66d9; --brand-2:#9b96ee; --brand-deep:#4a46b0; --brand-glow:rgba(107,102,217,.28);
