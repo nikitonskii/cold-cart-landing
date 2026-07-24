@@ -116,6 +116,12 @@ img{display:block;max-width:100%}
 .lg-footer nav a{color:var(--muted);font-weight:500}
 .lg-footer nav a:hover{color:var(--brand);text-decoration:none}
 
+/* language switcher (footer) */
+.lang-switch{display:flex;gap:16px;flex-wrap:wrap}
+.lang-switch a{font-size:14px;color:var(--muted);font-weight:500}
+.lang-switch a:hover{color:var(--brand);text-decoration:none}
+.lang-switch a.active{color:var(--brand);font-weight:700}
+
 @media (max-width:640px){
   body{font-size:16px}
   .lg-hero{padding:38px 22px 24px}
