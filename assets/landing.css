@@ -290,6 +290,8 @@ h1,h2,h3{letter-spacing:-1px;line-height:1.05;font-weight:700}
 .signup .btn{height:56px;background:#15113a;color:#fff;flex-shrink:0}
 .signup .btn:hover{background:#000;transform:translateY(-2px)}
 .cta-msg{color:#fff;font-size:14.5px;margin-top:16px;min-height:20px;position:relative;z-index:2;font-weight:500}
+.cta-consent{color:rgba(255,255,255,.72);font-size:13px;margin-top:12px;position:relative;z-index:2}
+.cta-consent a{color:#fff;text-decoration:underline;font-weight:600}
 
 /* RESPONSIVE */
 @media (max-width:980px){

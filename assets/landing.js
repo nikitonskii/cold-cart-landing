@@ -31,12 +31,29 @@ mobileNav.querySelectorAll('a').forEach(function(a){ a.addEventListener('click',
 window.addEventListener('resize', function(){ if(window.innerWidth > 880) closeMenu(); });
 
 // Waitlist form — messages come from data-msg-* attributes so each locale supplies its own.
+// Set data-endpoint on the form to a URL accepting POST {email, locale, source} as JSON;
+// until it is set, submissions only show the confirmation without being stored.
 var form = document.getElementById('signup'), msg = document.getElementById('cta-msg');
 form.addEventListener('submit', function(e){
   e.preventDefault();
   var email = document.getElementById('email').value.trim();
   var ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   if(!ok){ msg.textContent = form.getAttribute('data-msg-invalid'); return; }
-  msg.textContent = form.getAttribute('data-msg-ok');
-  form.reset();
+  var endpoint = form.getAttribute('data-endpoint');
+  if(!endpoint){ msg.textContent = form.getAttribute('data-msg-ok'); form.reset(); return; }
+  var btn = form.querySelector('button');
+  btn.disabled = true;
+  fetch(endpoint, {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({email: email, locale: document.documentElement.lang, source: 'landing'})
+  }).then(function(r){
+    if(!r.ok) throw new Error('HTTP ' + r.status);
+    msg.textContent = form.getAttribute('data-msg-ok');
+    form.reset();
+  }).catch(function(){
+    msg.textContent = form.getAttribute('data-msg-error');
+  }).finally(function(){
+    btn.disabled = false;
+  });
 });
