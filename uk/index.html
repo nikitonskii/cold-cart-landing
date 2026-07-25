@@ -385,9 +385,10 @@
     <div class="cta-inner reveal">
       <h2>Будь першим, хто <span class="serif">охолоне.</span></h2>
       <p>Приєднуйся до списку очікування — і ми надішлемо тобі посилання на завантаження в день запуску Cold Cart.</p>
-      <form class="signup" id="signup" novalidate data-msg-invalid="Введи, будь ласка, коректну адресу електронної пошти." data-msg-ok="Ти в списку — ми напишемо тобі, щойно Cold Cart запуститься. ❄️" data-msg-error="Щось пішло не так — спробуй ще раз за мить.">
+      <form class="signup" id="signup" novalidate data-msg-invalid="Введи, будь ласка, коректну адресу електронної пошти." data-msg-ok="Ти в списку — ми напишемо тобі, щойно Cold Cart запуститься. ❄️" data-msg-error="Щось пішло не так — спробуй ще раз за мить." data-endpoint="https://api.coldcart.win/waitlist">
         <input type="email" id="email" placeholder="ty@pryklad.ua" aria-label="Адреса електронної пошти" required>
         <button type="submit" class="btn">Повідомити мене</button>
+        <div class="cf-turnstile" data-sitekey="0x4AAAAAAD9eCBvhB93qxwYe" data-language="uk"></div>
       </form>
       <p class="cta-consent">Твою пошту використаємо лише для того, щоб надіслати посилання в день запуску. Детальніше — у <a href="privacy.html">Політиці конфіденційності</a>.</p>
       <p class="cta-msg" id="cta-msg"></p>
@@ -430,6 +431,7 @@
   </div>
 </footer>
 
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 <script src="/assets/landing.js" defer></script>
 <script src="/assets/locales.js" defer></script>
 </body>

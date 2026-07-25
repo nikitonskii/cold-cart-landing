@@ -385,9 +385,10 @@
     <div class="cta-inner reveal">
       <h2>Be first to <span class="serif">cool down.</span></h2>
       <p>Join the waitlist and we'll send you the download link the day Cold Cart launches.</p>
-      <form class="signup" id="signup" novalidate data-msg-invalid="Please enter a valid email address." data-msg-ok="You're on the list — we'll email you the moment Cold Cart launches. ❄️" data-msg-error="Something went wrong — please try again in a moment.">
+      <form class="signup" id="signup" novalidate data-msg-invalid="Please enter a valid email address." data-msg-ok="You're on the list — we'll email you the moment Cold Cart launches. ❄️" data-msg-error="Something went wrong — please try again in a moment." data-endpoint="https://api.coldcart.win/waitlist">
         <input type="email" id="email" placeholder="you@example.com" aria-label="Email address" required>
         <button type="submit" class="btn">Notify me</button>
+        <div class="cf-turnstile" data-sitekey="0x4AAAAAAD9eCBvhB93qxwYe" data-language="en"></div>
       </form>
       <p class="cta-consent">We'll only use your email to send you the launch link. See our <a href="privacy.html">Privacy Policy</a>.</p>
       <p class="cta-msg" id="cta-msg"></p>
@@ -430,6 +431,7 @@
   </div>
 </footer>
 
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 <script src="/assets/landing.js" defer></script>
 <script src="/assets/locales.js" defer></script>
 </body>
