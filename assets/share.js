@@ -10,7 +10,7 @@
   var TURNSTILE_SITEKEY = '0x4AAAAAAD9eCBvhB93qxwYe'; // same public key as the waitlist widget
   // App is live; swap for the direct App Store link when available. The
   // homepage always resolves and carries the store badges.
-  var APP_STORE_URL = 'https://coldcart.win/';
+  var APP_STORE_URL = 'https://apps.apple.com/us/app/cold-cart/id6794052314';
 
   // --- State ---------------------------------------------------------------
   var TOKEN = '';
