@@ -133,18 +133,21 @@
       ? '<img class="item-img" src="' + esc(item.image) + '" alt="" loading="lazy">'
       : '<div class="item-img placeholder" aria-hidden="true">🎁</div>';
 
-    var control;
-    if (item.reserved && mine) {
-      control =
-        '<span class="badge">✓ Reserved by you</span>' +
-        '<button class="btn btn-ghost" data-action="release" data-item-id="' + esc(item.id) + '"' +
-        (busy ? ' disabled' : '') + '>' + (busy ? 'Releasing…' : 'Release') + '</button>';
-    } else if (item.reserved) {
-      control = '<span class="badge">✓ Reserved</span>';
-    } else {
-      control =
-        '<button class="btn" data-action="reserve" data-item-id="' + esc(item.id) + '"' +
-        (busy ? ' disabled' : '') + '>' + (busy ? 'Reserving…' : "I'll gift this 🎁") + '</button>';
+    // Reserve controls only on gift lists (the server also gates reserve/release).
+    var control = '';
+    if (listData.reservationsEnabled) {
+      if (item.reserved && mine) {
+        control =
+          '<span class="badge">✓ Reserved by you</span>' +
+          '<button class="btn btn-ghost" data-action="release" data-item-id="' + esc(item.id) + '"' +
+          (busy ? ' disabled' : '') + '>' + (busy ? 'Releasing…' : 'Release') + '</button>';
+      } else if (item.reserved) {
+        control = '<span class="badge">✓ Reserved</span>';
+      } else {
+        control =
+          '<button class="btn" data-action="reserve" data-item-id="' + esc(item.id) + '"' +
+          (busy ? ' disabled' : '') + '>' + (busy ? 'Reserving…' : "I'll gift this 🎁") + '</button>';
+      }
     }
 
     var err = errorById[item.id] ? '<p class="error-text">' + esc(errorById[item.id]) + '</p>' : '';
@@ -171,6 +174,7 @@
       '<header class="list-head">' +
       '<h1 class="list-title">' + esc(listData.name) + '</h1>' +
       '<p class="list-meta">Shared by ' + esc(listData.ownerName) + ' · ' + count + (count === 1 ? ' item' : ' items') + '</p>' +
+      (listData.reservationsEnabled ? '<p class="gift-badge">🎁 Gift list</p>' : '') +
       '</header>';
 
     var body = count

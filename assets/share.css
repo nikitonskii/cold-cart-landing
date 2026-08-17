@@ -53,6 +53,16 @@ body {
 .list-head { text-align: center; margin: 8px 0 24px; }
 .list-title { font-size: 26px; font-weight: 800; letter-spacing: -0.02em; margin: 0 0 6px; }
 .list-meta { color: var(--text-soft); font-size: 14px; margin: 0; }
+.gift-badge {
+  display: inline-block;
+  margin: 10px auto 0;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--reserved);
+  background: color-mix(in srgb, var(--reserved) 12%, transparent);
+}
 
 /* Items */
 .items { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
