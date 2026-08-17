@@ -1,0 +1,133 @@
+/* Shared wishlist page (/s/<token>). Standalone — does not depend on landing.css. */
+
+:root {
+  --bg: #f4f2fb;
+  --surface: #ffffff;
+  --text: #1c1b22;
+  --text-soft: #6b6878;
+  --border: #e6e3f0;
+  --accent: #716bf2;
+  --accent-ink: #ffffff;
+  --reserved: #2e9e6b;
+  --danger: #d1495b;
+  --radius: 16px;
+  --shadow: 0 1px 3px rgba(28, 27, 34, 0.06), 0 8px 24px rgba(28, 27, 34, 0.05);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #121118;
+    --surface: #1d1b26;
+    --text: #f2f1f7;
+    --text-soft: #a29fb2;
+    --border: #2c2a38;
+    --accent: #8b86f5;
+    --reserved: #4cc38a;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
+}
+
+.wrap {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 20px 16px 64px;
+}
+
+/* Masthead */
+.masthead { display: flex; justify-content: center; padding: 8px 0 20px; }
+.brand { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; color: var(--text); }
+.brand-logo { display: block; border-radius: 8px; }
+.brand-name { font-weight: 700; font-size: 18px; letter-spacing: -0.01em; }
+
+/* List header */
+.list-head { text-align: center; margin: 8px 0 24px; }
+.list-title { font-size: 26px; font-weight: 800; letter-spacing: -0.02em; margin: 0 0 6px; }
+.list-meta { color: var(--text-soft); font-size: 14px; margin: 0; }
+.gift-badge {
+  display: inline-block;
+  margin: 10px auto 0;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--reserved);
+  background: color-mix(in srgb, var(--reserved) 12%, transparent);
+}
+
+/* Items */
+.items { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+.item {
+  display: flex;
+  gap: 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 12px;
+  box-shadow: var(--shadow);
+}
+.item-img {
+  width: 76px; height: 76px; flex: none;
+  border-radius: 12px; object-fit: cover;
+  background: var(--bg);
+}
+.item-img.placeholder { display: flex; align-items: center; justify-content: center; font-size: 26px; }
+.item-body { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; }
+.item-title {
+  font-weight: 600; font-size: 15px; margin: 0 0 4px;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+}
+.item-price { font-weight: 700; font-size: 15px; margin: 0 0 auto; }
+.item-actions { display: flex; align-items: center; gap: 10px; margin-top: 10px; flex-wrap: wrap; }
+
+.link {
+  color: var(--accent); font-weight: 600; font-size: 14px; text-decoration: none;
+}
+.link:hover { text-decoration: underline; }
+
+.btn {
+  appearance: none; border: 0; cursor: pointer; font: inherit; font-weight: 600;
+  border-radius: 999px; padding: 8px 14px; font-size: 14px;
+  background: var(--accent); color: var(--accent-ink);
+}
+.btn:disabled { opacity: 0.55; cursor: default; }
+.btn-ghost { background: transparent; color: var(--text-soft); padding: 8px 10px; }
+
+.badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  color: var(--reserved); font-weight: 700; font-size: 14px;
+}
+
+/* States */
+.state { text-align: center; padding: 48px 16px; color: var(--text-soft); }
+.state h1 { color: var(--text); font-size: 20px; margin: 0 0 8px; }
+.spinner {
+  width: 28px; height: 28px; margin: 0 auto; border-radius: 50%;
+  border: 3px solid var(--border); border-top-color: var(--accent);
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Footer CTA */
+.cta {
+  margin-top: 40px; text-align: center;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 24px 16px; box-shadow: var(--shadow);
+}
+.cta p { margin: 0 0 14px; color: var(--text-soft); font-size: 15px; }
+.cta .btn { text-decoration: none; display: inline-block; }
+
+/* Turnstile host, when shown */
+#turnstile-host { display: flex; justify-content: center; padding: 12px 0; }
+#turnstile-host[hidden] { display: none; }
+
+.error-text { color: var(--danger); font-size: 13px; margin: 8px 0 0; }

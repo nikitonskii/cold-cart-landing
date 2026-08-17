@@ -1,0 +1,2 @@
+# Shared-wishlist pages: serve the static app for any /s/<token> path.
+/s/*  /s/index.html  200

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Shared wishlist — Cold Cart</title>
+<!-- Per-person shared lists must never be indexed. -->
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#f4f2fb">
+
+<link rel="icon" type="image/png" href="/assets/favicon.png">
+<link rel="apple-touch-icon" href="/assets/app-icon.png">
+
+<link rel="stylesheet" href="/assets/fonts.css">
+<link rel="stylesheet" href="/assets/share.css">
+</head>
+<body>
+<main class="wrap" id="app">
+  <header class="masthead">
+    <a class="brand" href="https://coldcart.win/" aria-label="Cold Cart">
+      <img class="brand-logo" src="/assets/logo.png" alt="" width="28" height="28">
+      <span class="brand-name">Cold Cart</span>
+    </a>
+  </header>
+
+  <!-- Single live region swapped between loading / error / list states by share.js -->
+  <section id="state" class="state" aria-live="polite">
+    <div class="spinner" role="status" aria-label="Loading"></div>
+  </section>
+</main>
+
+<!-- Hidden container Turnstile renders into on demand (one challenge per reserve). -->
+<div id="turnstile-host" hidden></div>
+
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
+<script src="/assets/share.js" defer></script>
+</body>
+</html>
