@@ -243,7 +243,11 @@
   });
 
   function parseToken() {
-    // Path is /s/<token> (Cloudflare _redirects rewrites /s/* → /s/index.html).
+    // Token travels in the fragment (/s/#<token>): the browser fetches only
+    // the real /s/ file and the token never reaches the edge/server. Fall
+    // back to the legacy path form (/s/<token>) for any older links.
+    var hash = location.hash.replace(/^#/, '');
+    if (hash) return decodeURIComponent(hash);
     var m = location.pathname.match(/\/s\/([^/?#]+)/);
     return m ? decodeURIComponent(m[1]) : '';
   }
