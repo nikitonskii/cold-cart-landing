@@ -6,6 +6,8 @@
 <title>Shared wishlist — Cold Cart</title>
 <!-- Per-person shared lists must never be indexed. -->
 <meta name="robots" content="noindex, nofollow">
+<!-- The share token rides in ?t=; never leak it to product-image/analytics hosts via Referer. -->
+<meta name="referrer" content="no-referrer">
 <meta name="theme-color" content="#f4f2fb">
 
 <link rel="icon" type="image/png" href="/assets/favicon.png">
