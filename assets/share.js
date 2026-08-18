@@ -243,9 +243,9 @@
   });
 
   function parseToken() {
-    // Path is /s/<token> (Cloudflare _redirects rewrites /s/* → /s/index.html).
-    var m = location.pathname.match(/\/s\/([^/?#]+)/);
-    return m ? decodeURIComponent(m[1]) : '';
+    // Token travels in the query (/s/?t=<token>): the browser fetches only the
+    // real /s/ file, and the app receives it reliably via Universal Links.
+    return new URLSearchParams(location.search).get('t') || '';
   }
 
   function init() {
