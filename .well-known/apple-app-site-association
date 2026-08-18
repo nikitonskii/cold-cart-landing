@@ -1,0 +1,10 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appID": "QCFDVWCY6F.com.curiosityapps.coldcart",
+        "paths": ["/s", "/s/*"]
+      }
+    ]
+  }
+}
