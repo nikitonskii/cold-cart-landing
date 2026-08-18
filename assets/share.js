@@ -243,13 +243,9 @@
   });
 
   function parseToken() {
-    // Token travels in the fragment (/s/#<token>): the browser fetches only
-    // the real /s/ file and the token never reaches the edge/server. Fall
-    // back to the legacy path form (/s/<token>) for any older links.
-    var hash = location.hash.replace(/^#/, '');
-    if (hash) return decodeURIComponent(hash);
-    var m = location.pathname.match(/\/s\/([^/?#]+)/);
-    return m ? decodeURIComponent(m[1]) : '';
+    // Token travels in the query (/s/?t=<token>): the browser fetches only the
+    // real /s/ file, and the app receives it reliably via Universal Links.
+    return new URLSearchParams(location.search).get('t') || '';
   }
 
   function init() {
